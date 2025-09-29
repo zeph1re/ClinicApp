@@ -1,164 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pratama Clinic</title>
-  <script src="https://cdn.tailwindcss.com"></script>
- 
-</head>
-<body class="bg-sky-50 font-sans ">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pratama Clinic</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="bg-sky-50 font-sans">
+		<!-- Navbar -->
+		<header class="flex justify-between items-center px-8 py-4 bg-white shadow">
+			<h1 class="text-xl font-bold text-sky-700">Pratama Clinic</h1>
+			<nav class="hidden md:flex space-x-6 font-medium text-gray-700">
+				<a href="#">About Us</a>
+				<a href="#">Service</a>
+				<a href="#">Contact</a>
+			</nav>
+			<div class="flex space-x-3">
+				<button
+					class="text-gray-600"
+					onclick="window.location.href='/auth/login.html';"
+				>
+					Login
+				</button>
+				<button
+					class="bg-orange-500 text-white px-4 py-2 rounded-lg"
+					onclick="window.location.href='/auth/register.html';"
+				>
+					Register
+				</button>
+			</div>
+		</header>
 
-  <!-- Navbar -->
-  <header class="flex justify-between items-center px-8 py-4 bg-white shadow">
-    <h1 class="text-xl font-bold text-sky-700">Pratama Clinic</h1>
-    <nav class="hidden md:flex space-x-6 font-medium text-gray-700">
-      <a href="#">About Us</a>
-      <a href="#">Service</a>
-      <a href="#">Contact</a>
-    </nav>
-    <div class="flex space-x-3">
-      <button class="text-gray-600" onclick="window.location.href='/auth/login.html';">Login</button>
-      <button class="bg-orange-500 text-white px-4 py-2 rounded-lg" onclick="window.location.href='/auth/register.html';">Register</button>
-    </div>
-  </header>
+		<!-- Hero Section -->
+		<section class="relative bg-white">
+			<img
+				src="assets/img/jumbotron.jpg"
+				alt="Clinic"
+				class="w-full h-[450px] object-cover"
+			/>
+			<div
+				class="absolute top-0 left-0 w-full h-full bg-black/40 flex flex-col justify-center px-12 lg:px-[128px]"
+			>
+				<h2 class="text-3xl lg:text-5xl font-bold text-white max-w-xl">
+					We made your medical treatment easy
+				</h2>
+				<h3
+					class="text-xl lg:text-2xl text-orange-300 mt-2 font-medium max-w-xl"
+				>
+					Trusted healthcare, just one click away
+				</h3>
+				<p class="text-white mt-3 max-w-lg">
+					Let's Grab Your Free Consultation Now!
+				</p>
+				<button
+					class="mt-5 bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold w-fit"
+				>
+					Request Appointment
+				</button>
+			</div>
+			<!-- Appointment Form -->
+			<div
+				class="absolute top-16 right-16 bg-white rounded-lg shadow-lg p-6 w-96"
+			>
+				<h3
+					class="bg-orange-500 text-white px-4 py-8 rounded-t-md -mx-6 -mt-6 mb-4"
+				>
+					Request Appointment Form
+				</h3>
+				<form class="space-y-3">
+					<input
+						type="text"
+						placeholder="Full Name"
+						class="w-full border px-3 py-2 rounded"
+					/>
+					<input type="date" class="w-full border px-3 py-2 rounded" />
+					<input
+						type="tel"
+						placeholder="Phone Number"
+						class="w-full border px-3 py-2 rounded"
+					/>
+					<select class="w-full border px-3 py-2 rounded">
+						<option>Services</option>
+						<option>Konsultasi</option>
+						<option>Vaksinasi</option>
+						<option>Perawatan Gigi</option>
+					</select>
+					<button class="w-full bg-orange-500 text-white py-2 rounded">
+						Daftar
+					</button>
+				</form>
+			</div>
+		</section>
 
-  <!-- Hero Section -->
-  <section class="relative bg-white">
-    <img src="assets/img/jumbotron.jpg" alt="Clinic" class="w-full h-[450px] object-cover ">
-    <div class="absolute top-0 left-0 w-full h-full bg-black/40 flex flex-col justify-center px-12 lg:px-[128px] ">
-      <h2 class="text-3xl lg:text-5xl font-bold text-white max-w-xl">We made your medical treatment easy</h2>
-      <h3 class="text-xl lg:text-2xl text-orange-300 mt-2 font-medium max-w-xl">
-      Trusted healthcare, just one click away
-    </h3>
-      <p class="text-white mt-3 max-w-lg">Let's Grab Your Free Consultation Now!</p>
-      <button class="mt-5 bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold w-fit">Request Appointment</button>
-    </div>
-    <!-- Appointment Form -->
-    <div class="absolute top-16 right-16 bg-white rounded-lg shadow-lg p-6 w-96">
-      <h3 class="bg-orange-500 text-white px-4 py-8 rounded-t-md -mx-6 -mt-6 mb-4">Request Appointment Form</h3>
-      <form class="space-y-3">
-        <input type="text" placeholder="Full Name" class="w-full border px-3 py-2 rounded">
-        <input type="date" class="w-full border px-3 py-2 rounded">
-        <input type="tel" placeholder="Phone Number" class="w-full  border px-3 py-2 rounded">
-        <select class="w-full border px-3 py-2 rounded">
-          <option>Services</option>
-          <option>Konsultasi</option>
-          <option>Vaksinasi</option>
-          <option>Perawatan Gigi</option>
-        </select>
-        <button class="w-full bg-orange-500 text-white py-2 rounded">Daftar</button>
-      </form>
-    </div>
-  </section>
+		<!-- About Us -->
+		<section class="grid md:grid-cols-2 gap-8 px-8 lg:px-24 py-16 items-center">
+			<div>
+				<h2 class="text-2xl font-bold mb-4">About Us</h2>
+				<p class="text-gray-600">
+					At Protama Clinic, we are committed to providing high-quality,
+					affordable, and compassionate healthcare services for the community.
+					Our mission is to make medical treatment easy and accessible for
+					everyone by combining modern facilities with experienced
+					professionals.
+				</p>
+			</div>
+			<img
+				src="assets/img/clinic_room.png"
+				alt="Clinic Room"
+				class="rounded-lg shadow"
+			/>
+		</section>
 
-  <!-- About Us -->
-  <section class="grid md:grid-cols-2 gap-8 px-8 lg:px-24 py-16 items-center">
-    <div>
-      <h2 class="text-2xl font-bold mb-4">About Us</h2>
-      <p class="text-gray-600">At Protama Clinic, we are committed to providing high-quality, affordable, and compassionate healthcare services for the community. Our mission is to make medical treatment easy and accessible for everyone by combining modern facilities with experienced professionals.</p>
-    </div>
-    <img src="assets/img/clinic_room.png" alt="Clinic Room" class="rounded-lg shadow">
-  </section>
+		<!-- Services -->
+		<section class="px-8 lg:px-24 py-16">
+			<h2 class="text-2xl font-bold mb-8">Our Medical Services</h2>
+			<div class="grid md:grid-cols-3 gap-6">
+				<div class="bg-white rounded-lg shadow">
+					<img src="assets/img/consultation.png" class="rounded-t-lg" />
+					<div class="p-4">
+						<h3 class="font-semibold">Konsultasi Umum</h3>
+						<p class="text-gray-600 text-sm">
+							Personalized check-ups and advice to keep you and your family
+							healthy.
+						</p>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow">
+					<img src="assets/img/vaccination.png" class="rounded-t-lg" />
+					<div class="p-4">
+						<h3 class="font-semibold">Vaksinasi</h3>
+						<p class="text-gray-600 text-sm">
+							Protect yourself and your loved ones with safe and reliable
+							vaccinations.
+						</p>
+					</div>
+				</div>
+				<div class="bg-white rounded-lg shadow">
+					<img src="assets/img/teeth_check.png" class="rounded-t-lg" />
+					<div class="p-4">
+						<h3 class="font-semibold">Perawatan Gigi</h3>
+						<p class="text-gray-600 text-sm">
+							Brighten your smile with expert dental care and comfortable
+							treatments.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-  <!-- Services -->
-  <section class="px-8 lg:px-24 py-16">
-    <h2 class="text-2xl font-bold mb-8">Our Medical Services</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-lg shadow">
-        <img src="assets/img/consultation.png" class="rounded-t-lg">
-        <div class="p-4">
-          <h3 class="font-semibold">Konsultasi Umum</h3>
-          <p class="text-gray-600 text-sm">Personalized check-ups and advice to keep you and your family healthy.</p>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow">
-        <img src="assets/img/vaccination.png" class="rounded-t-lg">
-        <div class="p-4">
-          <h3 class="font-semibold">Vaksinasi</h3>
-          <p class="text-gray-600 text-sm">Protect yourself and your loved ones with safe and reliable vaccinations.</p>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow">
-        <img src="assets/img/teeth_check.png" class="rounded-t-lg">
-        <div class="p-4">
-          <h3 class="font-semibold">Perawatan Gigi</h3>
-          <p class="text-gray-600 text-sm">Brighten your smile with expert dental care and comfortable treatments.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+		<!-- Doctors -->
+		<section class="px-8 lg:px-24 py-16">
+			<h2 class="text-2xl font-bold mb-8">Skilled Hands, Caring Heart</h2>
+			<div id="doctor-list" class="grid md:grid-cols-3 gap-2"></div>
+		</section>
 
-  <!-- Doctors -->
-  <section class="px-8 lg:px-24 py-16">
-    <h2 class="text-2xl font-bold mb-8">Skilled Hands, Caring Heart</h2>
-    <div id="doctor-list" class="grid md:grid-cols-3 gap-2"></div>
-  </section>
+		<!-- Testimonial -->
+		<section class="grid md:grid-cols-2 gap-8 px-8 lg:px-24 py-16 items-center">
+			<div>
+				<h3 class="text-xl font-bold mb-2">What Our Lovely Customer Say</h3>
+				<p class="text-gray-600 mb-6">
+					See out customer testify about our service
+				</p>
+				<div class="bg-orange-50 p-6 rounded-lg shadow">
+					<p class="text-gray-700">
+						“Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry...”
+					</p>
+					<p class="mt-4 font-semibold">Name Name Name</p>
+					<p class="text-sm text-gray-600">3/5 star</p>
+				</div>
+			</div>
+			<img
+				src="assets/img/doctor_with_patient.png"
+				alt="Doctor with Patient"
+				class="rounded-lg shadow"
+			/>
+		</section>
 
-  <!-- Testimonial -->
-  <section class="grid md:grid-cols-2 gap-8 px-8 lg:px-24 py-16 items-center">
-    <div>
-      <h3 class="text-xl font-bold mb-2">What Our Lovely Customer Say</h3>
-      <p class="text-gray-600 mb-6">See out customer testify about our service</p>
-      <div class="bg-orange-50 p-6 rounded-lg shadow">
-        <p class="text-gray-700">“Lorem Ipsum is simply dummy text of the printing and typesetting industry...”</p>
-        <p class="mt-4 font-semibold">Name Name Name</p>
-        <p class="text-sm text-gray-600">3/5 star</p>
-      </div>
-    </div>
-    <img src="assets/img/doctor_with_patient.png" alt="Doctor with Patient" class="rounded-lg shadow">
-  </section>
+		<!-- CTA -->
+		<section class="text-center py-16 bg-sky-100">
+			<h2 class="text-2xl font-bold mb-2">Hurry up! and get</h2>
+			<p class="mb-6">
+				Free treatment for first 50 person<br /><span
+					class="text-sm text-gray-600"
+					>Limited time offer for this month. No credit card required.</span
+				>
+			</p>
+			<button
+				class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold"
+			>
+				Make An Appointment
+			</button>
+		</section>
 
-  <!-- CTA -->
-  <section class="text-center py-16 bg-sky-100">
-    <h2 class="text-2xl font-bold mb-2">Hurry up! and get</h2>
-    <p class="mb-6">Free treatment for first 50 person<br><span class="text-sm text-gray-600">Limited time offer for this month. No credit card required.</span></p>
-    <button class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold">Make An Appointment</button>
-  </section>
+		<!-- Footer -->
+		<footer class="bg-gray-900 text-gray-200 px-8 lg:px-24 py-12">
+			<div class="grid md:grid-cols-4 gap-8">
+				<div>
+					<h4 class="font-bold mb-3">CALL US</h4>
+					<p>+218 945 1287 59</p>
+				</div>
+				<div>
+					<h4 class="font-bold mb-3">ADDRESS</h4>
+					<p>92, Thomas Street, NY</p>
+				</div>
+				<div>
+					<h4 class="font-bold mb-3">EMAIL</h4>
+					<p>klinik@website.com</p>
+				</div>
+				<div>
+					<h4 class="font-bold mb-3">WEBSITE</h4>
+					<p>www.clinic.com</p>
+				</div>
+			</div>
+			<div
+				class="mt-8 border-t border-gray-700 pt-6 grid md:grid-cols-4 gap-6 text-sm"
+			>
+				<div>
+					<h5 class="font-semibold mb-2">RELATED LINKS</h5>
+					<p>About Us</p>
+					<p>Our Team</p>
+					<p>Contact Us</p>
+				</div>
+				<div>
+					<h5 class="font-semibold mb-2">OTHER LINKS</h5>
+					<p>About Us</p>
+					<p>Our Team</p>
+					<p>Contact Us</p>
+				</div>
+				<div>
+					<h5 class="font-semibold mb-2">RELATED LINKS</h5>
+					<p>About Us</p>
+					<p>Our Team</p>
+					<p>Contact Us</p>
+				</div>
+				<div>
+					<h5 class="font-semibold mb-2">ABOUT US</h5>
+					<p>Lorem Ipsum is simply dummy text...</p>
+				</div>
+			</div>
+		</footer>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-200 px-8 lg:px-24 py-12">
-    <div class="grid md:grid-cols-4 gap-8">
-      <div>
-        <h4 class="font-bold mb-3">CALL US</h4>
-        <p>+218 945 1287 59</p>
-      </div>
-      <div>
-        <h4 class="font-bold mb-3">ADDRESS</h4>
-        <p>92, Thomas Street, NY</p>
-      </div>
-      <div>
-        <h4 class="font-bold mb-3">EMAIL</h4>
-        <p>klinik@website.com</p>
-      </div>
-      <div>
-        <h4 class="font-bold mb-3">WEBSITE</h4>
-        <p>www.clinic.com</p>
-      </div>
-    </div>
-    <div class="mt-8 border-t border-gray-700 pt-6 grid md:grid-cols-4 gap-6 text-sm">
-      <div>
-        <h5 class="font-semibold mb-2">RELATED LINKS</h5>
-        <p>About Us</p><p>Our Team</p><p>Contact Us</p>
-      </div>
-      <div>
-        <h5 class="font-semibold mb-2">OTHER LINKS</h5>
-        <p>About Us</p><p>Our Team</p><p>Contact Us</p>
-      </div>
-      <div>
-        <h5 class="font-semibold mb-2">RELATED LINKS</h5>
-        <p>About Us</p><p>Our Team</p><p>Contact Us</p>
-      </div>
-      <div>
-        <h5 class="font-semibold mb-2">ABOUT US</h5>
-        <p>Lorem Ipsum is simply dummy text...</p>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- Script JS -->
-    <script src="js/doctors.js"></script>
-
-</body>
+		<!-- Script JS -->
+		<!-- <script src="js/doctors.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+		<script src="js/data.js"></script>
+	</body>
 </html>
