@@ -1,14 +1,13 @@
-const supabaseUrl = 'https://tmvrbmwwvtsdnqhdtuto.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtdnJibXd3dnRzZG5xaGR0dXRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM3NzY5NjksImV4cCI6MjA2OTM1Mjk2OX0.vbxYtNHUYasLM9eANSPu_KZ2CFnS6b4WQPwED0zWzfk';
-const client = supabase.createClient(supabaseUrl, supabaseKey);
+import {supabaseUrl, supabaseAnonKey} from './constant.js';
 
-  console.log('Supabase Instance: ', client);
+const client = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
+console.log('Supabase Instance: ', client);
 
 async function getDoctor() {
     const {data, error} = await client
-    .from('doctor')
-    .select("*");
+    .from('users')
+    .select("id, name, doctor(id, specialization,photo_url)");
     
     if(error) {
         console.error('Error mengambil data:', error);
@@ -18,16 +17,16 @@ async function getDoctor() {
     console.log(data);
 
     const list = document.getElementById('doctor-list');
-    list.innerHTML = ''; // Kosongkan daftar dulu
+    list.innerHTML = '';
 
     data.forEach(doc => {
         const card = `
        <div class="bg-orange-50 border rounded-xl shadow p-4 flex flex-col justify-between">
           <div class="flex items-start space-x-4">
-            <img src="${doc.photo_url}" alt="Doctor" class="w-24 h-40 object-cover rounded-md">
+            <img src="${doc.doctor.photo_url}" alt="Doctor" class="w-24 h-40 object-cover rounded-md">
             <div class="flex flex-col w-full">
               <h3 class="text-lg font-bold text-gray-900">${doc.name}</h3>
-              <p class="text-gray-700">${doc.specialization}</p>
+              <p class="text-gray-700">${doc.doctor.specialization}</p>
             </div>
           </div>
           <div class="mt-3 flex justify-center space-x-2">
@@ -37,7 +36,14 @@ async function getDoctor() {
         </div>
         `;
         list.innerHTML += card;
-  });
+  }).slice(2);
 } 
 
 document.addEventListener('DOMContentLoaded', getDoctor);
+
+
+async function getPatient() {
+  const {patientData, error} = await client
+  .from("user")
+  .select('');
+}
