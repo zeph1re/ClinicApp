@@ -4,50 +4,74 @@ import {supabaseUrl, supabaseAnonKey} from './constant.js';
 const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
 // Sign Up
-async function signUp() {
-  const email = document.getElementById('email').value;
+document.getElementById('registerForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  // === 3. Get form values ===
+  const fullName = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
   const role = document.getElementById('role').value;
 
+  // === 4. Validate ===
+  if (!fullName || !email || !password || !confirmPassword) {
+    alert("Please fill out all fields.");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return;
+  }
+
+  // === 5. Sign up with Supabase ===
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      data: { role }  // Custom user_metadata
+      data: {
+        full_name: fullName,
+        role: role
+      }
     }
   });
 
   if (error) {
-    alert("Error signing up: " + error.message);
-  } else {
-    alert("Check your email to confirm the signup.");
+    alert("Registration failed: " + error.message);
+    return;
   }
-}
 
-// Sign In
-async function signIn() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  alert("Registration successful! Please check your email to confirm your account.");
+  
+  // Optionally redirect to login page
+  window.location.href = 'auth/login.html';
+});
 
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
 
-  if (error) {
-    alert("Login failed: " + error.message);
-  } else {
-    const user = data.user;
-    const role = user.user_metadata?.role || 'unknown';
+// Login 
 
-    alert(`Welcome ${user.email}, your role is: ${role}`);
+const loginForm = document.getElementById('loginForm');
+loginForm.addEventListener('submit', async function(){
+    e.preventDefault();
 
-    if (role === 'doctor') {
-      // redirect or show doctor panel
-      window.location.href = '/doctor-dashboard.html';
+    const email = document.getElementById('email')?.value.trim();
+    const password = document.getElementById('password');
+
+    const {data, error} = await supabase.auth.signInWithPassword({
+        email, password
+    });
+
+    if(error) {
+        alert("Login Error = " + error.message);
+        return;
+    }
+
+    if (role === 'patient') {
+        window.location.href = '/index.html';
+    } if (role === "admint") {
+        window.location.href = 'admin.html';
     } else {
-      // redirect or show patient panel
-      window.location.href = '/patient-dashboard.html';
+        alert("Access Denied")
     }
-  }
-}
+});
