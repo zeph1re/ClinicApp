@@ -1,0 +1,52 @@
+# Clinic App
+passclinic2025#
+
+##List Page
+
+### Landing Page
+Header -> Done
+Jumbotron
+About us
+Medical Service
+Doctor List
+Testimonies
+Hook
+Contact
+Footer
+
+### Doctor Detail
+
+
+
+
+
+
+## Auth
+
+Login Page -> UI Done
+Register Page -> UI Done
+
+## Role
+
+Patient
+Admin/Doctor
+
+## Flow
+
+### Patient Flow
+
+Auth : Landing Page -> Login -> Register -> Login Page -> Landing Page
+Request Appointment : Landing Page -> Request Appointment -> Modal(Yes/No) -> Profile
+Doctor List : 
+
+### Admin
+
+Auth : Landing Page -> Login -> Landing Page (Admin)
+Approve Appointment : Landing Page (Admin) -> List Patient Approval -> Modal Approval
+
+
+
+
+
+
+

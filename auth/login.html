@@ -5,6 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Pratama Clinic Login</title>
 		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+		<script type="module" src="js/data.js"></script>
 	</head>
 	<body class="bg-[#15485E] flex items-center justify-center min-h-screen">
 		<div class="w-full max-w-md px-6 text-center my-16">
@@ -18,11 +20,12 @@
 			</p>
 
 			<!-- Login Form -->
-			<form class="mt-6 bg-transparent">
+			<form class="mt-6 bg-transparent" id="loginForm">
 				<!-- Email -->
 				<div class="mb-4 text-left">
 					<label class="block text-white mb-1">Email Address</label>
 					<input
+						id="loginEmail"
 						type="email"
 						placeholder="pratama@klinik.com"
 						class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -33,6 +36,7 @@
 				<div class="mb-4 text-left">
 					<label class="block text-white mb-1">Password</label>
 					<input
+						id="loginPassword"
 						type="password"
 						placeholder="****************"
 						class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -59,9 +63,7 @@
 			<!-- Register Link -->
 			<p class="mt-4 text-gray-200 text-sm">
 				Don’t have Account?
-				<a
-					href="auth/register.html"
-					class="font-bold text-white hover:underline"
+				<a href="register.html" class="font-bold text-white hover:underline"
 					>Create an Account</a
 				>
 			</p>
