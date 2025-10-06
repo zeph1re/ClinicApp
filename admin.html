@@ -6,6 +6,8 @@
 		<title>Admin Dashboard</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.55.0/dist/umd/supabase.min.js"></script>
+		<script type="module" src="../js/logout.js"></script>
+
 	</head>
 	<body class="bg-[#EAF6FB] flex">
 		<!-- Sidebar -->
@@ -45,7 +47,7 @@
 					>
 						<span>⚙️</span> <span class="sidebar-text">Settings</span>
 					</li>
-					<li
+					<li id="logout"
 						class="flex items-center gap-2 cursor-pointer hover:text-orange-400 list-none"
 					>
 						<span>🚪</span> <span class="sidebar-text">Log out</span>
