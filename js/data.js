@@ -6,8 +6,8 @@ console.log('Supabase Instance: ', client);
 
 async function getDoctor() {
     const {data, error} = await client
-    .from('users')
-    .select("id, name, doctor(specialization,photo_url)");
+    .from('doctors')
+    .select("uid, name)");
     
     if(error) {
         console.error('Error mengambil data:', error);

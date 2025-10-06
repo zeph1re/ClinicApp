@@ -28,57 +28,85 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
   const { user, error } = await supabase.auth.signUp({
     email,
     password,
+    option: {
+      data: {
+        full_name: fullName
+      }
+    }
   });
 
   if (error) {
     alert("Registration failed: " + error.message);
-  } else {
-    await supabase
-    .from('users')
-    .insert([{email: email, fullName: fullName, role: 'patient'}]);
-
-    alert("Registration successful! Please check your email to confirm your account.");
+    return null;
+  } 
   
-    // Optionally redirect to login page
-    window.location.href = 'login.html';
+   // 2. Buat entry di tabel profiles (sinkronisasi)
+  const { error: profileError } = await supabase.from("profiles").insert([
+    {
+      id: user.id,
+      full_name: fullName,
+      phone,
+      dob,
+      gender,
+      address,
+      role: "patient" // default role pasien
+    }
+  ]);
+
+  if (profileError) {
+    console.error("Error insert profile:", profileError.message);
+    return null;
   }
 
-  
+  console.log("Register success:", user);
+  return user;
 });
 
 
 // Login 
 
-const loginForm = document.getElementById('loginForm');
-loginForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  // 1. Login via supabase auth
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
 
-    const email = document.getElementById('email')?.value.trim();
-    const password = document.getElementById('password');
+  if (error) {
+    console.error("Login failed:", error.message);
+    return null;
+  }
 
-    const {user, error} = await supabase.auth.signInWithPassword({
-        email, password
-    });
+  const user = data.user;
 
-    if(error) {
-        alert("Login Error = " + error.message);
-    } else {
-      document.getElementById('auth-status').innerText = `Welcome, ${user.fullName}`;
+  // 2. Ambil data dari tabel profiles
+  const { data: profile, error: profileError } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .single();
 
-      const {data, error: userDataError} = await supabase.from('users').select('*').eq('uid', user.id).single();
+  if (profileError) {
+    console.error("Profile not found:", profileError.message);
+    return null;
+  }
 
-      if(userDataError) {
-        alert(userDataError.message);
-      } else {
-        console.log('User Data', data);
-      }
-    }
+  console.log("Login success:", { ...user, profile });
+   if (profile.role === "admin") {
+    window.location.href = "/admin.html";
+  } else {
+    window.location.href = "/index.html";
+  }
+  return { ...user, profile };
 
-    if (role === 'patient') {
-        window.location.href = 'index.html';
-    } if (role === "admint") {
-        window.location.href = 'admin.html';
-    } else {
-        alert("Access Denied")
-    }
+ 
+});
+
+// Logout
+document.getElementById('logout').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  await supabase.auth.signOut();
+  sessionStorage.removeItem("user");
+  window.location.href = "/login.html";
 });
