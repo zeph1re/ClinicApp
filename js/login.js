@@ -38,7 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    sessionStorage.setItem("user", JSON.stringify({ ...user, profile }));
+    // Setelah login berhasil dan redirect
+    sessionStorage.setItem("user", JSON.stringify({
+      id: user.id, 
+      email: user.email, 
+      role: profile.role,
+      fullName: profile.full_name
+    }))
+
 
     if (profile.role === "admin") {
       window.location.href = "../admin.html";

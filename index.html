@@ -5,18 +5,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Pratama Clinic</title>
 		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+		<script type="module" src="../js/header.js"></script>
 	</head>
 	<body class="bg-sky-50 font-sans">
 		<!-- Navbar -->
 		<header class="flex justify-between items-center px-8 py-4 bg-white shadow">
 			<h1 class="text-xl font-bold text-sky-700">Pratama Clinic</h1>
-			<nav class="hidden md:flex space-x-6 font-medium text-gray-700">
+			<nav  class="hidden md:flex space-x-6 font-medium text-gray-700">
 				<a href="#">About Us</a>
 				<a href="#">Service</a>
 				<a href="#">Contact</a>
 			</nav>
-			<div class="flex space-x-3">
-				<button
+			<div class="flex space-x-3" id="header_button">
+				<!-- <button
 					class="text-gray-600"
 					onclick="window.location.href='auth/login.html';"
 				>
@@ -27,7 +29,7 @@
 					onclick="window.location.href='auth/register.html';"
 				>
 					Register
-				</button>
+				</button> -->
 			</div>
 		</header>
 

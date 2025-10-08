@@ -1,20 +1,17 @@
-import {supabaseUrl, supabaseAnonKey} from './constant.js';
-
-const client = supabase.createClient(supabaseUrl, supabaseAnonKey);
-
-console.log('Supabase Instance: ', client);
+import { supabase } from "./constant.js"; // pastikan path ini benar
 
 async function getDoctor() {
-    const {data, error} = await client
+    const {data, error} = await supabase
     .from('doctors')
-    .select("uid, name)");
-    
+    .select(`id, profiles (full_name)`)
+    .order("created_at", { ascending: false });
+;
     if(error) {
         console.error('Error mengambil data:', error);
         return;
     }
 
-    console.log(data);
+    console.log('Data Doctor: ', data);
 
     const list = document.getElementById('doctor-list');
     list.innerHTML = '';
@@ -23,10 +20,10 @@ async function getDoctor() {
         const card = `
        <div class="bg-orange-50 border rounded-xl shadow p-4 flex flex-col justify-between">
           <div class="flex items-start space-x-4">
-            <img src="${doc.doctor.photo_url}" alt="Doctor" class="w-24 h-40 object-cover rounded-md">
+            <img src="" alt="Doctor" class="w-24 h-40 object-cover rounded-md">
             <div class="flex flex-col w-full">
-              <h3 class="text-lg font-bold text-gray-900">${doc.name}</h3>
-              <p class="text-gray-700">${doc.doctor.specialization}</p>
+              <h3 class="text-lg font-bold text-gray-900">${doc.profiles.full_name}</h3>
+              <p class="text-gray-700"></p>
             </div>
           </div>
           <div class="mt-3 flex justify-center space-x-2">
@@ -36,7 +33,7 @@ async function getDoctor() {
         </div>
         `;
         list.innerHTML += card;
-  }).slice(2);
+  });
 } 
 
 document.addEventListener('DOMContentLoaded', getDoctor);
