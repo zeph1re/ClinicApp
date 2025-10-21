@@ -1,5 +1,25 @@
 import { supabase } from "./constant.js"; // pastikan path ini benar
 
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if(entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("show");
+          }, index * 150);
+        }
+      });
+    }, {
+      threshold: 0.2
+    }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+});
+
 async function getDoctor() {
     const { data, error } = await supabase
         .from("doctors")
