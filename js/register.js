@@ -57,6 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         alert("Register success! Please check your email to confirm.");
-        window.location.href = "../auth/login.html";
+        window.location.href = "../view/login.html";
     });
 });

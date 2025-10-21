@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sessionStorage.removeItem("user");
 
             // Redirect ke halaman login
-            window.location.href = "../auth/login.html";
+            window.location.href = "../view/login.html";
         });
     }
     // Jika user belum login
@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
         headerNav.innerHTML = `
 				<button
 					class="text-gray-600"
-					onclick="window.location.href='../auth/login.html';"
+					onclick="window.location.href='../view/login.html';"
 				>
 					Login
 				</button>
 				<button
 					class="bg-orange-500 text-white px-4 py-2 rounded-lg"
-					onclick="window.location.href='../auth/register.html';"
+					onclick="window.location.href='../view/register.html';"
 				>
 					Register
 				</button>

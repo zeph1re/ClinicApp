@@ -1,4 +1,4 @@
-import { supabase } from "./api.js"; // pastikan path ini benar
+import { supabase } from "./constant.js"; // pastikan path ini benar
 
 document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logout");
@@ -22,6 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.clear();
 
         // Redirect ke login page
-        window.location.href = "/auth/login.html"; // pastikan path ini sesuai struktur project kamu
+        window.location.href = "../view/login.html"; // pastikan path ini sesuai struktur project kamu
     });
 });

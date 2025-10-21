@@ -7,6 +7,9 @@
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 		<script type="module" src="../js/header.js"></script>
+		<script type="module" src="../js/data.js"></script>
+
+
 	</head>
 	<body class="bg-sky-50 font-sans">
 		<!-- Navbar -->
@@ -20,7 +23,7 @@
 			<div class="flex space-x-3" id="header_button">
 				<button
 					class="text-gray-600"
-					onclick="window.location.href='auth/login.html';"
+					onclick="window.location.href='login.html';"
 				>
 					Login
 				</button>
@@ -54,7 +57,7 @@
 				<p class="fade-in text-white mt-3 max-w-lg">
 					Let's Grab Your Free Consultation Now!
 				</p>
-				<button
+				<button onclick="window.location.href='../view/appointment.html';"
 					class="fade-in mt-5 bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold w-fit"
 				>
 					Request Appointment
@@ -87,7 +90,7 @@
 						<option>Vaksinasi</option>
 						<option>Perawatan Gigi</option>
 					</select>
-					<button class="w-full bg-orange-500 text-white py-2 rounded">
+					<button  class="w-full bg-orange-500 text-white py-2 rounded" onclick="window.location.href='../view/appointment.html';">
 						Daftar
 					</button>
 				</form>

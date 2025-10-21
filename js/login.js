@@ -1,9 +1,5 @@
 // Initialize Supabase
 import { supabase } from "./api.js";
-import { AuthService } from "./services/AuthService.js";
-
-const auth = new AuthService();
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("loginForm");
@@ -17,15 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-
-        try {
-            await auth.login(email, password);
-            alert("Login berhasil!");
-
-        } catch (error) {
-                alert("Login gagal: " + error.message);
-
-        }
 
         const { data, error } = await supabase.auth.signInWithPassword({
             email,

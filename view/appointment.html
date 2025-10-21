@@ -8,9 +8,11 @@
 <body class="p-8 bg-gray-50">
   <form id="appointmentForm" class="max-w-md mx-auto bg-white p-6 rounded shadow space-y-4">
     <h2 class="text-xl font-bold">Make an Appointment</h2>
+    <input type="text" id="name" placeholder="Full Name" class="border p-2 w-full rounded" required>
+    <input type="text" id="service" placeholder="Input Service" class="border p-2 w-full rounded" required>
     <input type="date" id="date" class="border p-2 w-full rounded" required>
     <input type="time" id="time" class="border p-2 w-full rounded" required>
-    <button class="bg-blue-500 text-white px-4 py-2 rounded" type="submit">Book Now</button>
+    <button class="bg-orange-500 text-white px-4 py-2 rounded" type="submit">Book Now</button>
   </form>
   <script type="module" src="js/appointment.js"></script>
 </body>
