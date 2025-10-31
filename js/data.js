@@ -1,4 +1,4 @@
-import { supabase } from "./constant.js"; // pastikan path ini benar
+import { supabase } from "./api.js"; // pastikan path ini benar
 
 document.addEventListener("DOMContentLoaded", () => {
   const elements = document.querySelectorAll(".fade-in");

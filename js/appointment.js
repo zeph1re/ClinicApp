@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+import { supabase } from "./api.js";
 
 const form = document.getElementById("appointmentForm");
 const urlParams = new URLSearchParams(window.location.search);

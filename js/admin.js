@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+import { supabase } from "./api.js";
 
 const tbody = document.querySelector("tbody");
 

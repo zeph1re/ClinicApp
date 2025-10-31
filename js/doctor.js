@@ -1,4 +1,4 @@
-import { supabase } from "./supabase.js";
+import { supabase } from "./api.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const doctorId = urlParams.get("id");

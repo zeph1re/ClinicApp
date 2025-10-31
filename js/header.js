@@ -1,6 +1,12 @@
+const userData = JSON.parse(sessionStorage.getItem("user"));
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const headerNav = document.getElementById("header_button");
-    const userData = JSON.parse(sessionStorage.getItem("user"));
+    const appointmentFormBtn = document.getElementById("appointmentFormButton");
+
+    
+
 
     // Jika user sudah login
     if (userData) {
@@ -11,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 </button>
     `;
 
+    appointmentFormBtn.addEventListener("click", function () {
+        window.location.href = "../view/appointment.html";
+    });
+
         // Event logout
         const logoutBtn = document.getElementById("logoutBtn");
         logoutBtn.addEventListener("click", async () => {
@@ -20,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Redirect ke halaman login
             window.location.href = "../view/login.html";
         });
+
     }
     // Jika user belum login
     else {
@@ -37,5 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
 					Register
 				</button>
     `;
+
+    appointmentFormBtn.addEventListener("click", function () {    
+        alert("Anda belum login! Silakan login terlebih dahulu.");
+        window.location.href = "../view/login.html";
+    });
     }
 });
