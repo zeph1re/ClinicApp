@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function getDoctor() {
     const { data, error } = await supabase
         .from("doctors")
-        .select(`id, profiles (full_name)`)
+        .select(`id, photo_url, profiles(full_name)`)
         .order("created_at", { ascending: false });
     if (error) {
         console.error("Error mengambil data:", error);
@@ -39,9 +39,9 @@ async function getDoctor() {
         const card = `
         <div class="bg-orange-50 border rounded-xl shadow p-4 flex flex-col justify-between">
           <div class="flex items-start space-x-4">
-            <img src="" alt="Doctor" class="w-24 h-40 object-cover rounded-md">
+            <img src="${doc.photo_url}" alt="Doctor" class="w-24 h-40 object-cover rounded-md">
             <div class="flex flex-col w-full">
-              <h3 class="text-lg font-bold text-gray-900">${doc.profiles.full_name}</h3>
+              <h3 class="text-lg font-bold text-gray-900">Dr. ${doc.profiles.full_name}</h3>
               <p class="text-gray-700"></p>
             </div>
           </div>
