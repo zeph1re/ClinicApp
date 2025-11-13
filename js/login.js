@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (profile.role === "admin") {
-            window.location.href = "../view/admin.html";
+            window.location.href = "/view/admin.html";
         } else {
             window.location.href = "../index.html";
         }
