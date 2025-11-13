@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     appointmentFormBtn.addEventListener("click", function () {
-        window.location.href = "/view/appointment.html";
+        window.location.href = "view/appointment.html";
     });
 
         // Event logout
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sessionStorage.removeItem("user");
 
             // Redirect ke halaman login
-            window.location.href = "/view/login.html";
+            window.location.href = "view/login.html";
         });
 
     }
@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
         headerNav.innerHTML = `
 				<button
 					class="text-gray-600"
-					onclick="window.location.href='/view/login.html';"
+					onclick="window.location.href='view/login.html';"
 				>
 					Login
 				</button>
 				<button
 					class="bg-orange-500 text-white px-4 py-2 rounded-lg"
-					onclick="window.location.href='/view/register.html';"
+					onclick="window.location.href='view/register.html';"
 				>
 					Register
 				</button>
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     appointmentFormBtn.addEventListener("click", function () {    
         alert("Anda belum login! Silakan login terlebih dahulu.");
-        window.location.href = "/view/login.html";
+        window.location.href = "view/login.html";
     });
     }
 });
