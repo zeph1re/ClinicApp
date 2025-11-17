@@ -1,6 +1,5 @@
 const userData = JSON.parse(sessionStorage.getItem("user"));
 
-
 document.addEventListener("DOMContentLoaded", () => {
     const headerNav = document.getElementById("header_button");
     const appointmentFormBtn = document.getElementById("appointmentFormButton");

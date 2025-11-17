@@ -13,14 +13,14 @@ form.addEventListener("submit", async (e) => {
   const { data: user } = await supabase.auth.getUser();
   if (!user.user) {
     alert("Please login first!");
-    return window.location.href = "login.html";
+    return window.location.href = "../view/login.html";
   }
 
   const { error } = await supabase.from("appointments").insert([{
     patient_id: user.user.id,
     doctor_id: doctorId,
-    date,
-    time,
+    appointment_date,
+    appointment_time,
     status: "pending"
   }]);
 
